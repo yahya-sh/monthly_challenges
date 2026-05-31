@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 
 
@@ -28,7 +28,7 @@ def index(request):
 
 def month_by_number(request, month: int):
     if not (0 < month < 13):
-        return HttpResponseNotFound(f"There is no month with the number {month}!")
+        raise Http404(f"There is no month with the number {month}!")
     months = list(monthly_challenges.keys())
     month_str = months[month - 1]
     return HttpResponseRedirect(
@@ -46,5 +46,5 @@ def month_by_str(request, month: str):
             context={"challenge": challenge_text, "month": month},
         )
     except Exception:
-        return HttpResponseNotFound(f"There is no month called {month}!")
+        raise Http404(f"There is no month called {month}!")
     return HttpResponse(challenge_page_content)

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block page_title %}Page Not Found!{% endblock page_title %}
+{% block content %}
+<h1>Something went wrong!</h1>
+{% if 'Resolver404' not in exception %}
+<p>{{exception}}</p>
+{% else %}
+<p>Sorry, we could not find the reuqested page.</p>
+{% endif %}
+{% endblock content %}
