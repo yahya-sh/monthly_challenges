@@ -5,7 +5,14 @@ from django.urls import reverse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Challenges Home Page")
+    months = list(monthly_challenges.keys())
+    response_content = ""
+    for month in months:
+        link = reverse("monthly-challenge", args=[month])
+        response_content+= f'<li><a href="{link}">{month.capitalize()}</a></li>'
+    
+    response_content = f"<ul>{response_content}</ul>"
+    return HttpResponse(response_content)
 
 
 monthly_challenges = {
