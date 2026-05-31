@@ -16,14 +16,14 @@ monthly_challenges = {
     "september": "Organize one area of your home each weekend.",
     "october": "Write down one thing you are grateful for daily.",
     "november": "Try a new hobby this month.",
-    "december": "Reflect on the year and set one goal for next year.",
+    "december": None,
 }
+
 
 def index(request):
     months = list(monthly_challenges.keys())
-    
-    return render(request, 'challenges/index.html', {'months': months})
 
+    return render(request, "challenges/index.html", {"months": months})
 
 
 def month_by_number(request, month: int):
@@ -38,12 +38,13 @@ def month_by_number(request, month: int):
 
 def month_by_str(request, month: str):
     month = month.lower()
-    challenge_text = monthly_challenges.get(month)
-    if challenge_text is None:
+    try:
+        challenge_text = monthly_challenges[month]
+        challenge_page_content = render(
+            request,
+            "challenges/monthly-challenge.html",
+            context={"challenge": challenge_text, "month": month},
+        )
+    except Exception:
         return HttpResponseNotFound(f"There is no month called {month}!")
-    challenge_page_content = render(
-        request,
-        "challenges/monthly-challenge.html",
-        context={"challenge": challenge_text, "month": month},
-    )
     return HttpResponse(challenge_page_content)
