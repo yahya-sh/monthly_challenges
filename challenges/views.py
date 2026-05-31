@@ -22,8 +22,13 @@ monthly_challenges = {
     "december": "Reflect on the year and set one goal for next year.",
 }
 
+def month_by_number(request, month: int):
+    if not (0 < month < 13):
+        return HttpResponseNotFound(f"There is no month with the number {month}!")
+    challenge_text = list(monthly_challenges.values())[month-1]
+    return HttpResponse(challenge_text)
 
-def month(request, month: str):
+def month_by_str(request, month: str):
     month = month.lower()
     challenge_text = monthly_challenges.get(month)
     if challenge_text is None:
