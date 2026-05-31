@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block page_title %}All Challenges{% endblock page_title %}
 {% block content %}
+    {% include "challenges/includes/header.html" %}
     <h1>All Challenges</h1>
     <ul>
         {% for month in months %}
