@@ -40,3 +40,9 @@ h1,h2,h3,h4,h5,h6{
     font-weight: bold;
     font-size: x-large;
 }
+
+.card{
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0px 1px 8px #1e90ff5b;
+}
