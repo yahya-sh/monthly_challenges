@@ -1,0 +1,24 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 40vh;
+    margin: 0;
+}
+
+.month-challenge-heading {
+    color: dodgerblue;
+}
+
+.month-challenge-heading::after {
+    content: '';
+    display: block;
+    background-color: dodgerblue;
+    border-radius: 2px;
+    width: 40%;
+    height: 2px;
+    margin: 8px auto 0;
+}
