@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+# django collected static
+static_collected
