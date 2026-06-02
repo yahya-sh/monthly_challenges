@@ -9,8 +9,8 @@
 {% block content %}
   {% include 'challenges/includes/header.html' %}
   <div class="content">
+    <h1 class="month-challenge-heading">{{ month|title }}'s Challenge</h1>
     {% if challenge is not None %}
-      <h1 class="month-challenge-heading">{{ month|title }}'s Challenge</h1>
       <p class="challenge-text">{{ challenge }}</p>
     {% else %}
       <p class="no-challenge">There is no challenge for this month yet!</p>
