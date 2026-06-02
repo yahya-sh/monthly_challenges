@@ -3,9 +3,8 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    min-height: 100vh;
     box-sizing: border-box;
-    padding-top: 40vh;
+    padding-top: 30vh;
     margin: 0;
 }
 
@@ -21,4 +20,8 @@
     width: 40%;
     height: 2px;
     margin: 8px auto 0;
+}
+
+.challenge-text{
+    font-size: 3rem;
 }
