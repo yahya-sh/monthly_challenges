@@ -22,3 +22,6 @@ makemigrations app="":
 
 shell:
     uv run manage.py shell
+
+collectstatic:
+    uv run manage.py collectstatic --no-input
